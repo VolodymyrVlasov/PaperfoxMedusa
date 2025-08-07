@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <title>Hello PaperfoxMedusa</title>
+</head>
+<body>
+  <h1>Привіт з Nginx!</h1>
+  <p id="api"></p>
+
+  <script>
+    fetch("/api/store/products")
+      .then(r => r.json())
+      .then(d => {
+        document.getElementById("api").textContent =
+          "API працює, товарів: " + d.count;
+      })
+      .catch(() => {
+        document.getElementById("api").textContent =
+          "Не вдалося дістатись API";
+      });
+  </script>
+</body>
+</html>

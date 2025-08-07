@@ -1,28 +1,16 @@
-# ---------- Build stage ----------
-FROM node:20-alpine AS build
+FROM node:20-bullseye AS build
 WORKDIR /app
-
-# установлюємо prod-залежності
 COPY package*.json ./
-RUN npm ci --omit=dev
-
-# копіюємо вихідний код і збираємо
+RUN npm install --include=optional --legacy-peer-deps
 COPY . .
-RUN npm run build   # генерує dist/
-
-# ---------- Runtime stage ----------
-FROM node:20-alpine
+RUN npx medusa build
+FROM node:20-bullseye
 WORKDIR /app
 ENV NODE_ENV=production
-
-# встановлюємо глобальний CLI (потрібен для "medusa start")
-RUN npm install -g @medusajs/medusa-cli
-
-# копіюємо з попереднього стаджу
+RUN npm i -g @medusajs/medusa-cli
 COPY --from=build /app /app
+RUN npm prune --omit=dev
 
-# порт 9000 всередині контейнера
 EXPOSE 9000
-
-# запускаємо бекенд
 CMD ["medusa", "start"]
+

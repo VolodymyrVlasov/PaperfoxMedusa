@@ -30,6 +30,7 @@ PaperfoxMedusa
 ---
 
 ## 3. .env
+Вписати данні
 ```
 PORT=9000
 DATABASE_URL=postgres://paperfoxadmin:***@gxfxu236.psql.tools:10236/paperfoxdb
@@ -46,6 +47,7 @@ PGSSLMODE=disable
 ---
 
 ## 4. medusa-config.js
+Створити файл і скопіювати у нього
 ```
 const { loadEnv, defineConfig } = require('@medusajs/framework/utils')
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
@@ -170,8 +172,10 @@ server {
 
 ## 6. Розгортання з нуля
 #### Клонування репозиторію
-`git clone https://github.com/VolodymyrVlasov/PaperfoxMedusa.git`
-`cd PaperfoxMedusa`
+```
+git clone https://github.com/VolodymyrVlasov/PaperfoxMedusa.git
+cd PaperfoxMedusa
+```
 
 #### Встановлення залежностей
 `npm install`
@@ -183,23 +187,29 @@ server {
 `npm run build`
 
 ## 5. Запуск через PM2
-`pm2 start npm --name "medusa-api" -- run start`
-`pm2 save`
+```
+pm2 start npm --name "medusa-api" -- run start
+pm2 save
+```
 
 ## 6. Активація Nginx конфігів
-`sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/api.paperfox.top.conf /etc/nginx/sites-enabled/`
-`sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/paperfox.top.conf /etc/nginx/sites-enabled/`
-`sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/admin.paperfox.top.conf /etc/nginx/sites-enabled/`
-`sudo nginx -t && sudo systemctl reload nginx`
+```
+sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/api.paperfox.top.conf /etc/nginx/sites-enabled/
+sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/paperfox.top.conf /etc/nginx/sites-enabled/
+ssudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/admin.paperfox.top.conf /etc/nginx/sites-enabled/
+ssudo nginx -t && sudo systemctl reload nginx
+```
 
 ---
 
 ## 7. Додатково
 #### Оновлення коду:
-`git pull`
-`npm install`
-`npm run build`
-`pm2 restart medusa-api --update-env`
+```
+git pull
+npm install
+npm run build
+pm2 restart medusa-api --update-env
+```
 
 #### Перегляд логів:
 `pm2 logs medusa-api`

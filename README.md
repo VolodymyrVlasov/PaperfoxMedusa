@@ -88,6 +88,7 @@ module.exports = defineConfig({
 ---
 
 ## 5. Nginx конфіги
+api.paperfox.top.conf
 - `nano /home/deploy/apps/medusa-paperfox/medusa-paperfox/infra/nginx/api.paperfox.top.conf`
 - `sudo nano /etc/nginx/sites-available/api.paperfox.top`
 ```
@@ -175,6 +176,7 @@ location /static/ {
 
 ```
 
+paperfox.top.conf
 - `nano /home/deploy/apps/medusa-paperfox/medusa-paperfox/infra/nginx/paperfox.top.conf`
 - `sudo nano /etc/nginx/sites-available/paperfox.top`
 ```
@@ -220,6 +222,7 @@ server {
 }
 ```
 
+admin.paperfox.top.conf
 - `nano /home/deploy/apps/medusa-paperfox/medusa-paperfox/infra/nginx/admin.paperfox.top.conf`
 - `sudo nano /etc/nginx/sites-available/api.paperfox.top`
 ```

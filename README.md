@@ -7,7 +7,7 @@
 ---
 
 ## 2. Структура
-````PaperfoxMedusa/
+```PaperfoxMedusa/
 │
 ├── apps/
 │ └── site/ # Фронтенд-статіка

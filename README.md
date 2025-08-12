@@ -203,8 +203,14 @@ pm2 save
 ## 6. Активація Nginx конфігів
 ```
 sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/api.paperfox.top.conf /etc/nginx/sites-enabled/
+```
+```
 sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/paperfox.top.conf /etc/nginx/sites-enabled/
+```
+```
 ssudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/admin.paperfox.top.conf /etc/nginx/sites-enabled/
+```
+```
 ssudo nginx -t && sudo systemctl reload nginx
 ```
 
@@ -214,8 +220,14 @@ ssudo nginx -t && sudo systemctl reload nginx
 Оновлення коду:
 ```
 git pull
+```
+```
 npm install
+```
+```
 npm run build
+```
+```
 pm2 restart medusa-api --update-env
 ```
 Перегляд логів:

@@ -171,24 +171,32 @@ server {
 ---
 
 ## 6. Розгортання з нуля
-#### Клонування репозиторію
+Клонування репозиторію
 ```
 git clone https://github.com/VolodymyrVlasov/PaperfoxMedusa.git
+```
+```
 cd PaperfoxMedusa
 ```
-
-#### Встановлення залежностей
-`npm install`
-
-#### Створення папки для статики
-`mkdir -p static`
+Встановлення залежностей
+```
+npm install
+```
+Створення папки для статики
+```
+mkdir -p static
+```
 
 #### Збірка
-`npm run build`
+```
+npm run build
+```
 
 ## 5. Запуск через PM2
 ```
 pm2 start npm --name "medusa-api" -- run start
+```
+```
 pm2 save
 ```
 
@@ -203,19 +211,21 @@ ssudo nginx -t && sudo systemctl reload nginx
 ---
 
 ## 7. Додатково
-#### Оновлення коду:
+Оновлення коду:
 ```
 git pull
 npm install
 npm run build
 pm2 restart medusa-api --update-env
 ```
-
-#### Перегляд логів:
-`pm2 logs medusa-api`
-
-#### Відновлення після перезавантаження:
-`pm2 resurrect`
+Перегляд логів:
+```
+pm2 logs medusa-api
+```
+Відновлення після перезавантаження:
+```
+pm2 resurrect
+```
 
 ---
 

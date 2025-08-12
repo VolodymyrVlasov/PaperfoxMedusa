@@ -7,7 +7,7 @@
 ---
 
 ## 2. Структура
-`PaperfoxMedusa/
+````PaperfoxMedusa/
 │
 ├── apps/
 │ └── site/ # Фронтенд-статіка
@@ -22,12 +22,12 @@
 │
 ├── medusa-config.js # Конфіг Medusa
 ├── .env # Секрети і налаштування
-└── README.md # Цей файл`
+└── README.md # Цей файл```
 
 ---
 
 ## 3. .env
-`PORT=9000
+```PORT=9000
 DATABASE_URL=postgres://paperfoxadmin:***@gxfxu236.psql.tools:10236/paperfoxdb
 REDIS_URL=redis://:***@127.0.0.1:6379/0
 JWT_SECRET=***      # 64+ hex
@@ -36,12 +36,12 @@ STORE_CORS=https://paperfox.top,https://www.paperfox.top
 ADMIN_CORS=https://admin.paperfox.top
 AUTH_CORS=https://admin.paperfox.top
 MEDUSA_BACKEND_URL=https://api.paperfox.top
-PGSSLMODE=disable`
+PGSSLMODE=disable```
 
 ---
 
 ## 4. medusa-config.js
-`const { loadEnv, defineConfig } = require('@medusajs/framework/utils')
+````const { loadEnv, defineConfig } = require('@medusajs/framework/utils')
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 module.exports = defineConfig({
@@ -74,14 +74,13 @@ module.exports = defineConfig({
       },
     },
   ],
-})`
+})```
 
 ---
 
 ## 5. Nginx конфіги
-
-infra/nginx/api.paperfox.top.conf
-`server {
+- infra/nginx/api.paperfox.top.conf
+```server {
   listen 80;
   server_name api.paperfox.top;
   return 301 https://$host$request_uri;
@@ -108,10 +107,10 @@ server {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
   }
-}`
+}```
 
-infra/nginx/paperfox.top.conf
-`server {
+- infra/nginx/paperfox.top.conf
+```server {
   listen 80;
   server_name paperfox.top www.paperfox.top;
   return 301 https://$host$request_uri;
@@ -130,10 +129,10 @@ server {
   location / {
     try_files $uri /index.html;
   }
-}`
+}```
 
-infra/nginx/admin.paperfox.top.conf
-`server {
+- infra/nginx/admin.paperfox.top.conf
+```server {
   listen 80;
   server_name admin.paperfox.top;
   return 301 https://$host$request_uri;
@@ -152,48 +151,47 @@ server {
   location / {
     try_files $uri /index.html;
   }
-}`
+}```
 
 ---
+
 ## 6. Розгортання з нуля
+#### Клонування репозиторію
+`git clone https://github.com/VolodymyrVlasov/PaperfoxMedusa.git`
+`cd PaperfoxMedusa`
 
-### 1. Клонування репозиторію
-`git clone https://github.com/VolodymyrVlasov/PaperfoxMedusa.git
-cd PaperfoxMedusa`
-
-### 2. Встановлення залежностей
+#### Встановлення залежностей
 `npm install`
 
-### 3. Створення папки для статики
+#### Створення папки для статики
 `mkdir -p static`
 
-### 4. Збірка
+#### Збірка
 `npm run build`
 
 # 5. Запуск через PM2
-pm2 start npm --name "medusa-api" -- run start
-pm2 save
+`pm2 start npm --name "medusa-api" -- run start`
+`pm2 save`
 
-### 6. Активація Nginx конфігів
-`sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/api.paperfox.top.conf /etc/nginx/sites-enabled/
-sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/paperfox.top.conf /etc/nginx/sites-enabled/
-sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/admin.paperfox.top.conf /etc/nginx/sites-enabled/
-
-sudo nginx -t && sudo systemctl reload nginx`
+## 6. Активація Nginx конфігів
+`sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/api.paperfox.top.conf /etc/nginx/sites-enabled/`
+`sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/paperfox.top.conf /etc/nginx/sites-enabled/`
+`sudo ln -s /home/deploy/apps/medusa-paperfox/infra/nginx/admin.paperfox.top.conf /etc/nginx/sites-enabled/`
+`sudo nginx -t && sudo systemctl reload nginx`
 
 ---
 
 ## 7. Додатково
-### Оновлення коду:
+#### Оновлення коду:
 - git pull
 - npm install
 - npm run build
 - pm2 restart medusa-api --update-env
 
-### Перегляд логів:
+#### Перегляд логів:
 - pm2 logs medusa-api
 
-### Відновлення після перезавантаження:
+#### Відновлення після перезавантаження:
 - pm2 resurrect
 
 ---

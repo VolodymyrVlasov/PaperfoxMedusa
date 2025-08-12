@@ -7,6 +7,7 @@
 ---
 
 ## 2. Структура
+
 ```PaperfoxMedusa/
 │
 ├── apps/
@@ -27,6 +28,7 @@
 ---
 
 ## 3. .env
+
 ```PORT=9000
 DATABASE_URL=postgres://paperfoxadmin:***@gxfxu236.psql.tools:10236/paperfoxdb
 REDIS_URL=redis://:***@127.0.0.1:6379/0
@@ -41,7 +43,8 @@ PGSSLMODE=disable```
 ---
 
 ## 4. medusa-config.js
-````const { loadEnv, defineConfig } = require('@medusajs/framework/utils')
+
+```const { loadEnv, defineConfig } = require('@medusajs/framework/utils')
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 module.exports = defineConfig({

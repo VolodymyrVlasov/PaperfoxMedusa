@@ -7,8 +7,7 @@ const deployToLocal = ({
   sourcePath,
   targetPath,
   clearBeforeDeploy,
-  basePath,
-  done
+  basePath
 }) => {
   if (!targetPath) throw new Error("invalid targetPath");
   const delay = 300;
@@ -28,8 +27,7 @@ const deployToLocal = ({
     );
     gulp
       .src(sourcePath, { base: basePath, allowEmpty: true })
-      .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + targetPath}`))
-      .on('end', done);
+      .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + targetPath}`));
 
     console.log(`[${new Date().toUTCString()}] ---> DEPLOY SUCCESFULY`);
   }, delay);
@@ -41,8 +39,7 @@ export const deployCode = ({
   targetPath,
   prodURL,
   basePath,
-  clearBeforeDeploy,
-  done
+  clearBeforeDeploy
 }) => {
   try {
     if (!sourcePath) throw new Error("invalid sourcePath");

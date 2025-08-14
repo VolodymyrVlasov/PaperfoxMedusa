@@ -7,7 +7,7 @@ import { SRC_PATH } from "../const.js";
 
 const TARGET_PATH = "./dist/";
 
-const buildPages = (vars, done) => {
+const buildPages = (vars) => {
   try {
     deleteSync([TARGET_PATH + "**/*.html"]);
     let streamHtml = gulp.src(SRC_PATH, { aloowEmpty: true });
@@ -17,7 +17,7 @@ const buildPages = (vars, done) => {
       streamHtml = streamHtml.pipe(replace(placeholder, value));
     }
 
-    streamHtml.pipe(webpHtml()).pipe(gulp.dest(TARGET_PATH)).on("end", done);
+    streamHtml.pipe(webpHtml()).pipe(gulp.dest(TARGET_PATH));
     return true;
   } catch (error) {
     console.error("---> buildPages interupted with error: " + error);

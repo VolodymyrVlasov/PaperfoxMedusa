@@ -26,7 +26,7 @@ import {
 
 const watchWrapper = (watchPath, func) => watch(watchPath, () => func());
 
-const buildAndDeployPages = (deployType, vars, isWatch, done) => {
+const buildAndDeployPages = (deployType, vars, isWatch) => {
   const func = () => {
     const options = {
       deployType: deployType, // /Users/volodymyrvlasov/Documents/local-server/paperfox-medusa/paperfox.top/
@@ -34,7 +34,6 @@ const buildAndDeployPages = (deployType, vars, isWatch, done) => {
       targetPath: "/",
       basePath: pagesBuildPath, // dist/www/
       clearBeforeDeploy: [`${deployType}**/*.html`], // /Users/volodymyrvlasov/Documents/local-server/paperfox-medusa/paperfox.top/**/*.html
-      done: done
     };
 
     if (buildPages(vars)) {
@@ -44,7 +43,7 @@ const buildAndDeployPages = (deployType, vars, isWatch, done) => {
   isWatch ? watchWrapper(pagesWatchPath, func) : func();
 };
 
-const buildAndDeployStyles = (deployType, vars, isWatch, done) => {
+const buildAndDeployStyles = (deployType, vars, isWatch) => {
   const func = () => {
     const options = {
       deployType: deployType,
@@ -52,14 +51,13 @@ const buildAndDeployStyles = (deployType, vars, isWatch, done) => {
       targetPath: "/",
       basePath: stylesBuildPath,
       clearBeforeDeploy: [`${deployType}**/*.css`],
-      done: done
     };
 
     if (buildStyles(vars)) {
       deployCode(options);
     }
   };
-  isWatch ? watchWrapper(stylesWatchPath, func, done) : func();
+  isWatch ? watchWrapper(stylesWatchPath, func) : func();
 };
 
 const buildAndDeployAssets = (deployType, vars, isWatch) => {
@@ -72,7 +70,6 @@ const buildAndDeployAssets = (deployType, vars, isWatch) => {
       clearBeforeDeploy: [
         `${deployType}/**/*`,
       ],
-      done: done
     };
     if (buildAssets(vars)) {
       deployCode(options);
@@ -81,7 +78,7 @@ const buildAndDeployAssets = (deployType, vars, isWatch) => {
   isWatch ? watchWrapper(assetsWatchPath, func) : func();
 };
 
-const buildAndDeployPagesScripts = (deployType, vars, isWatch, done) => {
+const buildAndDeployPagesScripts = (deployType, vars, isWatch) => {
   const func = () => {
     const options = {
       deployType: deployType,
@@ -89,7 +86,6 @@ const buildAndDeployPagesScripts = (deployType, vars, isWatch, done) => {
       targetPath: "/",
       basePath: pagesScriptsBuildPath,
       clearBeforeDeploy: [`${deployType}**/*.js`],
-      done: done
     };
     if (buildPagesScripts(vars)) {
       deployCode(options);

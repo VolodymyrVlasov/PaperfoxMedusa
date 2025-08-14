@@ -6,15 +6,14 @@ const SRC_PATH = "./apps/site-src/";
 const TARGET_PATH = "./dist/";
 const QUALITY_FACTOR = 90;
 
-const buildAssets = (done) => {
+const buildAssets = () => {
   try {
     deleteSync([TARGET_PATH + "**/*"]);
     gulp
       .src(SRC_PATH + "**/*")
       .pipe(gulp.dest(TARGET_PATH))
       .pipe(webp({ quality: QUALITY_FACTOR }))
-      .pipe(gulp.dest(TARGET_PATH))
-      .on('end', done);
+      .pipe(gulp.dest(TARGET_PATH));
 
     return true;
   } catch (error) {

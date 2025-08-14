@@ -5,7 +5,7 @@ import { deleteSync } from "del";
 const SRC_PATH = "./apps/site-src/";
 const TARGET_PATH = "./dist/";
 
-const buildStyles = (vars, done) => {
+const buildStyles = (vars) => {
   try {
     deleteSync(TARGET_PATH + "**/*.css");
     let streamCss = gulp.src(SRC_PATH + "**/*.css", {
@@ -17,7 +17,7 @@ const buildStyles = (vars, done) => {
       streamCss = streamCss.pipe(replace(placeholder, value));
     }
 
-    streamCss.pipe(gulp.dest(TARGET_PATH)).on("end", done);
+    streamCss.pipe(gulp.dest(TARGET_PATH));
     return true;
   } catch (error) {
     return false;

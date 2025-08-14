@@ -1,0 +1,69 @@
+.collapsable_cnt:has(input[type="checkbox"]:checked) .collapsable_cnt_legend {
+  height: auto !important;
+  transform: translateY(0);
+  transition: ease 1000ms;
+  opacity: 1;
+}
+
+.collapsable_cnt_input > input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 0;
+}
+
+.collapsable_cnt_input > label {
+  padding: 0 !important;
+  margin-top: -12px;
+}
+
+.collapsable_cnt_legend {
+  height: 0 !important;
+  opacity: 0;
+  transition: ease 100ms;
+  transform: translateY(-50%);
+}
+
+.t_shirt_image {
+    object-fit: cover;
+}
+
+
+
+/* `xxl` applies to xx-large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
+   
+  }
+  
+  /*`xl` applies to x-large devices (desktops, less than 1200px) */
+  @media (max-width: 1199.98px) {
+    
+  }
+  
+  /* `lg` applies to large devices (tablets, less than 992px) */
+  @media (max-width: 991.98px) {
+   
+  }
+  
+  /*-------------------------------------------*/
+  /* `md` applies to medium devices (landscape phones, less than 768px) */
+  @media (max-width: 767.98px) {
+  
+  }
+  
+  /* `sm` applies to small devices (portrait phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    .t_shirt_image {
+        width: 100%;
+        height: 300px;
+    }
+
+    .t_shirt_order_btn {
+        width: 100% !important;
+    }
+  }
+  
+  /* `xsm` applies to x-small devices (iPhone 5/5s/SE, equals to 320px) */
+  @media (max-width: 320px) {
+  }
+  

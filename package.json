@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "medusa-paperfox",
   "version": "0.0.1",
   "description": "A starter for Medusa projects.",
@@ -19,7 +20,11 @@
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
-    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit"
+    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
+    "watch_to_local": "npx gulp watchToLocal",
+    "watch_to_remote": "npx gulp watchToRemote",
+    "deploy_to_local": "npx gulp deployToLocal",
+    "deploy_to_remote": "npx gulp deployToRemote"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.8.8",
@@ -33,7 +38,12 @@
     "@mikro-orm/migrations": "6.4.3",
     "@mikro-orm/postgresql": "6.4.3",
     "awilix": "^8.0.1",
-    "pg": "^8.13.0"
+    "pg": "^8.13.0",
+    "fs": "^0.0.1-security",
+    "gulp-file": "^0.4.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^5.0.1"
   },
   "devDependencies": {
     "@medusajs/admin-bundler": "^2.8.8",
@@ -52,7 +62,33 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
     "vite": "^5.2.11",
-    "yalc": "^1.0.0-pre.53"
+    "yalc": "^1.0.0-pre.53",
+    "browser-sync": "^2.28.3",
+    "del": "^7.0.0",
+    "dotenv": "^16.0.3",
+    "gulp": "^4.0.2",
+    "gulp-cheerio": "^1.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.3.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-html-minify": "^0.0.14",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-picture": "^0.1.2",
+    "gulp-prettier": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-webp": "^4.0.1",
+    "gulp-webp-css": "^1.1.0",
+    "gulp-webp-html": "^1.0.2",
+    "gulp-webp-html-nosvg": "^1.1.1",
+    "through2": "^4.0.2",
+    "vinyl": "^3.0.0",
+    "vinyl-ftp": "^0.6.1",
+    "yargs": "^17.7.1"
   },
   "engines": {
     "node": ">=20"

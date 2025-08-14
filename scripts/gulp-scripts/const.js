@@ -5,9 +5,9 @@ export const SRC_PATH = [
 ];
 
 export const localVars = {
-    '{{domain}}': 'http://localhost/paperfox',
-    '{{sub_domain}}': 'http://localhost/paperfox',
-    '{{stylesheet_url}}': 'http://paperfox.top/paperfox/wp-content/themes/paperfox',
+    '{{domain}}': 'http://localhost:8888/paperfox.top',
+    '{{sub_domain}}': 'http://localhost:8888/paperfox.top',
+    '{{stylesheet_url}}': 'http://localhost:8888/paperfox.top',
     '{{email}}': 'print@paperfox.in.ua',
     '{{phone}}': '0800 332 042',
     '{{viber}}': 'viber://add?number=380730472212',

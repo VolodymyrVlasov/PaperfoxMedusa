@@ -1,0 +1,109 @@
+<section class="section">
+    <div class="container col gap">
+        <h2 class="text_32">Розрахунок вартості друку</h2>
+        <p>Оберіть параметри потрібної продукції для розрахунку вартості та орієнтовних термінів виробництва</p>
+        <form id="calculator" class="calculator">
+            <div class="inputs col big_gap flex_3">
+                <div class="row big_gap width_100">
+                    <div class="select col flex_1">
+                        <label for="material">Матеріал</label>
+                        <select name="material" id="material" aria-label="Обери матеріал наліпки">
+                            <option value="RAFLATAC" selected>DoubleA Premium (A) 80 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">DNS Color Print 80 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Паперова самоклейка з просічками Raflatac</option>
+                            <option value="RAFLATAC_GLOSS">Mondi ColorCopy 100 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Mondi ColorCopy 120 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Mondi ColorCopy 160 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Mondi ColorCopy 200 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Mondi ColorCopy 250 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Mondi ColorCopy 300 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Mondi ColorCopy 350 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Mondi ColorCopy 400 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">UPM крейдована 130 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">UPM крейдована 170 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">UPM крейдована 300 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">UPM крейдована 350 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Efalin High White (льон) 280 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Жовтий льон 300 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Shyne Whitegold золотавий 290 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Shyne Opal білий мармур 290 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">COCKTAIL GIN FIZZ біле золото 290 г/м²</option>
+                            <option value="RAFLATAC_GLOSS">Rusticus Neve 290 г/м²</option>
+                        </select>
+                    </div>
+                    <div class="select col flex_1">
+                        <label for="material">Друк</label>
+                        <select name="material" id="material" aria-label="Обери матеріал наліпки">
+                            <option value="RAFLATAC" selected>Односторонній 4+0</option>
+                            <option value="RAFLATAC">Двосторонній 4+4</option>
+                            <option value="RAFLATAC">Без друку</option>
+                        </select>
+                    </div>
+                </div>
+                
+
+                <div class="row big_gap width_100">
+                    <div class="select col flex_1">
+                        <label for="material">Постдрук</label>
+                        <select name="material" id="material" aria-label="Обери матеріал наліпки">
+                            <option value="RAFLATAC" selected>Порізка у розмір</option>
+                            <option value="RAFLATAC">Заокруглення кутів</option>
+                            <option value="RAFLATAC">Отвір 5 мм</option>
+                            <option value="RAFLATAC">Отвір для бейджа</option>
+                            <option value="RAFLATAC">Люверс</option>
+                            <option value="RAFLATAC">1 згин (навпіл)</option>
+                            <option value="RAFLATAC">2 згини (намотка)</option>
+                            <option value="RAFLATAC">Перфорація</option>
+                            <option value="RAFLATAC">Паперова</option>
+                        </select>
+                    </div>
+                    <div class="select col flex_1">
+                        <label for="material">Покриття</label>
+                        <select name="material" id="material" aria-label="Обери матеріал наліпки">
+                            <option value="RAFLATAC" selected>Без покриття</option>
+                            <option value="RAFLATAC">Ламінація матова (25мкм)</option>
+                            <option value="RAFLATAC">Ламінація глянцева (25мкм)</option>
+                            <option value="RAFLATAC">Ламінація SoftTouch (25мкм)</option>
+                            <option value="RAFLATAC">Ламінація голографічна (32мкм)</option>
+                            <option value="RAFLATAC">Фольга мідна</option>
+                            <option value="RAFLATAC">Фольга золота</option>
+                            <option value="RAFLATAC">Фольга срібна</option>
+                        </select>
+                    </div>
+
+                    <div class="row big_gap width_100">
+                        <div class="custom_input" id="input_width" title="Обери ширину у міліметрах">
+                            <span class="label">148</span>
+                            <label for="input_range_width" class="custom_input_label">Ширина (мм)</label>
+                            <input type="range" id="input_range_width" class="custom_input_input__range" min="50" max="300"
+                                value="148" />
+                        </div>
+                        <div class="custom_input" id="input_height" title="Обери довжину у міліметрах">
+                            <span id="input_label_amount" class="text_16__bold">210</span>
+                            <label class="custom_input_label" for="input_range_height">Довжина (мм)</label>
+                            <input type="range" id="input_range_height" class="custom_input_input__range" min="50" max="420"
+                                value="210" step="1" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="summary" class="summary flex_1">
+                <button type="button" id="detailed_price_btn" class="summary_details_btn"
+                    aria-label="Більше інформації про розрахунок" title="Більше інформації про розрахунок">i</button>
+                <div class="col gap">
+                    <label for="prod-time">Готовність:</label>
+                    <strong id="prod-time" class="link">1 жовтня 18:00</strong>
+                </div>
+                <div class="col gap">
+                    <label for="price">Варстіть:</label>
+                    <strong id="price" class="price"
+                        title="Орієнтовні дата та час готовності, в залежності від особливостей макету, дати замовлення чи завантаженості виробництва можуть бути змінені">70
+                        грн</strong>
+                </div>
+            </div>
+        </form>
+        <div>
+            <p>*Мінімальне замовлення - один макет на одному друкованому аркуші (SRA3) обраного матеріалу</p>
+        </div>
+    </div>
+</section>

@@ -7,10 +7,10 @@ const TARGET_PATH = "./dist/";
 const buildPagesScripts = () => {
   try {
     deleteSync([TARGET_PATH + "**/*.js"]);
-    gulp
+    return gulp
       .src(SRC_PATH + "**/*.js", { aloowEmpty: true })
       .pipe(gulp.dest(TARGET_PATH));
-    return true;
+    // return true;
   } catch (error) {
     console.error("---> BuildPagesScripts interupted. " + error);
     return false;

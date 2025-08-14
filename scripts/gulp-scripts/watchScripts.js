@@ -4,7 +4,7 @@ import {
   buildPages,
   SRC_PATH as pagesWatchPath,
   TARGET_PATH as pagesBuildPath,
-} from "./build/buldPages.js";
+} from "./build/buildPages.js";
 
 import {
   buildStyles,
@@ -32,7 +32,7 @@ const buildAndDeployPages = (deployType, vars, isWatch) => {
       deployType: deployType, // /Users/volodymyrvlasov/Documents/local-server/paperfox-medusa/paperfox.top/
       sourcePath: `${pagesBuildPath}**/*`, // dist/www/**/*
       targetPath: "/",
-      basePath: pagesBuildPath, // dist/www/
+      basePath: pagesBuildPath, // ./dist/
       clearBeforeDeploy: [`${deployType}**/*.html`], // /Users/volodymyrvlasov/Documents/local-server/paperfox-medusa/paperfox.top/**/*.html
     };
 
@@ -65,7 +65,7 @@ const buildAndDeployAssets = (deployType, vars, isWatch) => {
     const options = {
       deployType: deployType,
       sourcePath: `${assetsBuildPath}**/*`,
-      targetPath: "/",
+      targetPath: "/static/",
       basePath: assetsBuildPath,
       clearBeforeDeploy: [
         `${deployType}/**/*`,

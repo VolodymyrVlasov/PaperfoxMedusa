@@ -2,7 +2,7 @@ import gulp from "gulp";
 import replace from "gulp-replace";
 import { deleteSync } from "del";
 
-const SRC_PATH = "./apps/site-src/";
+const SRC_PATH = "./apps/site-src/styles/";
 const TARGET_PATH = "./dist/";
 
 const buildStyles = (vars) => {
@@ -17,8 +17,8 @@ const buildStyles = (vars) => {
       streamCss = streamCss.pipe(replace(placeholder, value));
     }
 
-    streamCss.pipe(gulp.dest(TARGET_PATH));
-    return true;
+    return streamCss.pipe(gulp.dest(TARGET_PATH));
+    // return true;
   } catch (error) {
     return false;
   }

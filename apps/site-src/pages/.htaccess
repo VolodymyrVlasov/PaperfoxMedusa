@@ -1,0 +1,2 @@
+ErrorDocument 404 /404.html
+RewriteRule ^(.*?/)category/(.+)$ $1$2 [R=301,L]

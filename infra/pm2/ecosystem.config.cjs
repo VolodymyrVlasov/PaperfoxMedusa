@@ -21,7 +21,7 @@ module.exports = {
     production: {
       // ДАНІ ДО СЕРВЕРА
       user: "deploy",
-      host: "vps-51344",        // або IP
+      host: "paperfox",        // або IP
       ref: "origin/main",
       repo: "git@github.com:VolodymyrVlasov/PaperfoxMedusa.git",
       path: "/home/deploy/apps/medusa-paperfox",

@@ -8,3 +8,6 @@ yarn-error.log*
 .pnpm-store/
 logs/
 dist/
+!apps/site-src/static
+!apps/site-src/scripts
+apps/site/*

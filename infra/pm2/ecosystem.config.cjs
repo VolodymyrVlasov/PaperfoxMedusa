@@ -25,12 +25,10 @@ module.exports = {
       ref: "origin/main",
       repo: "git@github.com:VolodymyrVlasov/PaperfoxMedusa.git",
       path: "/home/deploy/apps/medusa-paperfox",
-      // ЩО ВИКОНАТИ ПІСЛЯ ВИТЯГУ КОДУ
       "post-deploy": [
         "npm ci",
         "npm run build",
         "npm run builStaticSite",
-        // "cd apps/site-src && npm ci && npx gulp build",
         "pm2 startOrReload infra/pm2/ecosystem.config.cjs --only medusa-api --env production"
       ].join(" && ")
     }

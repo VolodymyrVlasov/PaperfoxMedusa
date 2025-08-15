@@ -28,7 +28,7 @@ module.exports = {
       "post-deploy": [
         "npm ci",
         "npm run build",
-        "npm run builStaticSite",
+        "npm run buildStaticSite",
         "pm2 startOrReload infra/pm2/ecosystem.config.cjs --only medusa-api --env production"
       ].join(" && ")
     }

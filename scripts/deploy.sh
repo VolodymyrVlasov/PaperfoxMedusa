@@ -19,7 +19,7 @@ echo "[4/5] PM2 reload"
 pm2 startOrReload ./infra/pm2/ecosystem.config.js
 pm2 save
 
-npm run builStaticSite 
+npm run buildStaticSite 
 
 echo "[5/5] (Optional) Nginx test+reload if configs changed"
 sudo nginx -t && sudo systemctl reload nginx || true

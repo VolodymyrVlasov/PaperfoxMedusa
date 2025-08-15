@@ -18,7 +18,7 @@ module.exports = {
   deploy: {
     production: {
       user: "deploy",
-      host: "paperfox",        // або IP
+      host: "paperfox", // або IP
       ref: "origin/main",
       repo: "git@github.com:VolodymyrVlasov/PaperfoxMedusa.git",
       path: "/home/deploy/apps/medusa-paperfox",
@@ -26,8 +26,15 @@ module.exports = {
         "npm ci",
         "npm run build",
         "npm run buildStaticSite",
-        "pm2 startOrReload infra/pm2/ecosystem.config.cjs --only medusa-api --env production --update-env"
-      ].join(" && ")
-    }
-  }
-}
+        "pm2 startOrReload infra/pm2/ecosystem.config.cjs --only medusa-api --env production --update-env",
+      ].join(" && "),
+    },
+  },
+  "post-deploy": [
+    "cd /home/deploy/apps/medusa-paperfox/current",
+    "npm ci",
+    "npm run build",
+    "npm run buildStaticSite",
+    "pm2 startOrReload /home/deploy/apps/medusa-paperfox/current/infra/pm2/ecosystem.config.cjs --only medusa-api --env production --update-env",
+  ].join(" && "),
+};

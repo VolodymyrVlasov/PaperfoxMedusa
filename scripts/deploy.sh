@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APP_DIR="/home/deploy/apps/medusa-paperfox/medusa-paperfox"
+APP_DIR="/home/deploy/apps/medusa-paperfox"
 
 cd "$APP_DIR"
 

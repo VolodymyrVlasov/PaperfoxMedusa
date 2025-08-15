@@ -1,10 +1,8 @@
-
-// infra/pm2/ecosystem.config.cjs
 module.exports = {
   apps: [
     {
       name: "medusa-api",
-      cwd: "/home/deploy/apps/medusa-paperfox",
+      cwd: "/home/deploy/apps/medusa-paperfox/current",
       script: "npm",
       args: "start",
       env: {
@@ -19,7 +17,6 @@ module.exports = {
 
   deploy: {
     production: {
-      // ДАНІ ДО СЕРВЕРА
       user: "deploy",
       host: "paperfox",        // або IP
       ref: "origin/main",
@@ -29,7 +26,7 @@ module.exports = {
         "npm ci",
         "npm run build",
         "npm run buildStaticSite",
-        "pm2 startOrReload infra/pm2/ecosystem.config.cjs --only medusa-api --env production"
+        "pm2 startOrReload infra/pm2/ecosystem.config.cjs --only medusa-api --env production --update-env"
       ].join(" && ")
     }
   }

@@ -16,14 +16,14 @@ export const deployToLocal = () => {
   });
 };
 
-export const buidProd = () => {
+export const buildProd = () => {
   watchBuildDeployScripts.forEach((script) => {
     return script(DeployTypes.PROD_SERVER, prodRemoteVars, false);
   });
 
-  setTimeout(() => {
-    let rmPath = "./dist/";
-    let isDeleteDist = deleteSync(rmPath, { force: true });
-    console.log(`[${new Date().toUTCString()}] -> DELETE FILES FROM ${rmPath} -> ${isDeleteDist}`);
-  }, 20000);
+  // setTimeout(() => {
+  //   let rmPath = "./dist/";
+  //   let isDeleteDist = deleteSync(rmPath, { force: true });
+  //   console.log(`[${new Date().toUTCString()}] -> DELETE FILES FROM ${rmPath} -> ${isDeleteDist}`);
+  // }, 20000);
 };

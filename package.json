@@ -23,7 +23,7 @@
     "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
     "watch_to_local": "npx gulp watchToLocal",
     "deploy_to_local": "npx gulp deployToLocal",
-    "buildStaticSite": "npx gulp buidProd"
+    "buildStaticSite": "npx gulp buildProd"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.8.8",

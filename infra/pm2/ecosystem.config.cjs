@@ -30,6 +30,7 @@ module.exports = {
       ].join(" && "),
     },
   },
+
   "post-deploy": [
     "cd /home/deploy/apps/medusa-paperfox/current",
     "npm ci",

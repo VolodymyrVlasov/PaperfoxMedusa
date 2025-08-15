@@ -25,5 +25,5 @@ export const buidProd = () => {
     let rmPath = "./dist/";
     let isDeleteDist = deleteSync(rmPath, { force: true });
     console.log(`[${new Date().toUTCString()}] -> DELETE FILES FROM ${rmPath} -> ${isDeleteDist}`);
-  }, 3000);
+  }, 20000);
 };

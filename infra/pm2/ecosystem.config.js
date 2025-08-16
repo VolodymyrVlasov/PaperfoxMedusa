@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "medusa-api",
-      cwd: "/home/deploy/apps/medusa-paperfox/medusa-paperfox",
+      cwd: "/home/deploy/apps/medusa-paperfox",
       script: "npm",
       args: "start",
       env: {

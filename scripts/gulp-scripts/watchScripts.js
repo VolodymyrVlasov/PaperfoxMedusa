@@ -1,71 +1,170 @@
+// import watch from "gulp-watch";
+// import { deployCode } from "./deploy/deployCode.js";
+// import { buildPages, SRC_PATH as pagesWatchPath, TARGET_PATH as pagesBuildPath } from "./build/buildPages.js";
+
+// import { buildStyles, SRC_PATH as stylesWatchPath, TARGET_PATH as stylesBuildPath } from "./build/buildStyles.js";
+
+// import { buildAssets, SRC_PATH as assetsWatchPath, TARGET_PATH as assetsBuildPath } from "./build/buildAssets.js";
+
+// import { buildPagesScripts, SRC_PATH as pagesScriptsWatchPath, TARGET_PATH as pagesScriptsBuildPath } from "./build/buildPagesSripts.js";
+
+// const watchWrapper = (watchPath, func) => watch(watchPath, () => func());
+
+// const buildAndDeployPages = (deployType, vars, isWatch, isDeleteDist = false) => {
+//   const func = () => {
+//     const options = {
+//       deployType: deployType, // /Users/volodymyrvlasov/Documents/local-server/paperfox-medusa/paperfox.top/
+//       sourcePath: `${pagesBuildPath}**/*`, // dist/www/**/*
+//       targetPath: "/",
+//       basePath: pagesBuildPath, // ./dist/
+//       clearBeforeDeploy: [`${deployType}**/*.html`], // /Users/volodymyrvlasov/Documents/loc al-server/paperfox-medusa/paperfox.top/**/*.html
+//     };
+//     buildPages(vars) && deployCode(options);
+//   };
+//   isWatch ? watchWrapper(pagesWatchPath, func) : func();
+// };
+
+// const buildAndDeployStyles = (deployType, vars, isWatch, isDeleteDist = false) => {
+//   const func = () => {
+//     const options = {
+//       deployType: deployType,
+//       sourcePath: `${stylesBuildPath}/**/*.css`,
+//       targetPath: "/",
+//       basePath: stylesBuildPath,
+//       clearBeforeDeploy: [`${deployType}/**/*.css`],
+//     };
+//     buildStyles(vars) && deployCode(options);
+//   };
+//   isWatch ? watchWrapper(stylesWatchPath, func) : func();
+// };
+
+// const buildAndDeployAssets = (deployType, vars, isWatch, isDeleteDist = false) => {
+//   const func = () => {
+//     const options = {
+//       deployType: deployType,
+//       sourcePath: `${assetsBuildPath}/**/*`,
+//       targetPath: "/static/",
+//       basePath: assetsBuildPath,
+//       clearBeforeDeploy: [`${deployType}/**/*`],
+//     };
+//     buildAssets(vars) && deployCode(options);
+//   };
+//   isWatch ? watchWrapper(assetsWatchPath, func) : func();
+// };
+
+// const buildAndDeployPagesScripts = (deployType, vars, isWatch, isDeleteDist = false) => {
+//   const func = () => {
+//     const options = {
+//       deployType: deployType,
+//       sourcePath: `${pagesScriptsBuildPath}/**/*.js`,
+//       targetPath: "",
+//       basePath: pagesScriptsBuildPath,
+//       clearBeforeDeploy: [`${deployType}/**/*.js`],
+//     };
+//     buildPagesScripts(vars) && deployCode(options);
+//   };
+//   isWatch ? watchWrapper(pagesScriptsWatchPath, func) : func();
+// };
+
+// const watchBuildDeployScripts = [buildAndDeployPages, buildAndDeployStyles, buildAndDeployAssets, buildAndDeployPagesScripts];
+
+// export default watchBuildDeployScripts;
+
 import watch from "gulp-watch";
 import { deployCode } from "./deploy/deployCode.js";
-import { buildPages, SRC_PATH as pagesWatchPath, TARGET_PATH as pagesBuildPath } from "./build/buildPages.js";
+import { buildPages, SRC_PATH as pagesSrc, TARGET_PATH as pagesBuild } from "./build/buildPages.js";
+import { buildStyles, SRC_PATH as stylesSrc, TARGET_PATH as stylesBuild } from "./build/buildStyles.js";
+import { buildAssets, SRC_PATH as assetsSrc, TARGET_PATH as assetsBuild } from "./build/buildAssets.js";
+import { buildPagesScripts, SRC_PATH as scriptsSrc, TARGET_PATH as scriptsBuild } from "./build/buildPagesSripts.js";
 
-import { buildStyles, SRC_PATH as stylesWatchPath, TARGET_PATH as stylesBuildPath } from "./build/buildStyles.js";
+// допоміжне: нормалізація шляхів щоб не було подвійних слешів
+const joinPath = (...parts) =>
+  parts
+    .filter(Boolean)
+    .join("/")
+    .replace(/\/{2,}/g, "/");
 
-import { buildAssets, SRC_PATH as assetsWatchPath, TARGET_PATH as assetsBuildPath } from "./build/buildAssets.js";
+// обгортка watch з підтримкою async-функцій
+const watchWrapper = (watchPath, func) =>
+  watch(joinPath(watchPath, "**/*"), () => {
+    Promise.resolve()
+      .then(() => func())
+      .catch((e) => console.error("[watch error]", e));
+  });
 
-import { buildPagesScripts, SRC_PATH as pagesScriptsWatchPath, TARGET_PATH as pagesScriptsBuildPath } from "./build/buildPagesSripts.js";
-
-const watchWrapper = (watchPath, func) => watch(watchPath, () => func());
-
-const buildAndDeployPages = (deployType, vars, isWatch, isDeleteDist = false) => {
-  const func = () => {
+// ===== PAGES =====
+const buildAndDeployPages = (deployRootAbs, vars = {}, isWatch = false) => {
+  const func = async () => {
     const options = {
-      deployType: deployType, // /Users/volodymyrvlasov/Documents/local-server/paperfox-medusa/paperfox.top/
-      sourcePath: `${pagesBuildPath}**/*`, // dist/www/**/*
-      targetPath: "/",
-      basePath: pagesBuildPath, // ./dist/
-      clearBeforeDeploy: [`${deployType}**/*.html`], // /Users/volodymyrvlasov/Documents/local-server/paperfox-medusa/paperfox.top/**/*.html
+      deployType: deployRootAbs,                        // абсолютний корінь призначення
+      sourcePath: joinPath(pagesBuild, "**/*"),         // ./dist/**/*
+      targetPath: "/",                                  // куди в deployRoot кластимемо
+      basePath: pagesBuild,                             // ./dist/
+      clearBeforeDeploy: [joinPath(deployRootAbs, "**/*.html")],
     };
-    buildPages(vars) && deployCode(options);
+    await buildPages(vars);
+    await deployCode(options);
   };
-  isWatch ? watchWrapper(pagesWatchPath, func) : func();
+
+  return isWatch ? watchWrapper(pagesSrc, func) : func();
 };
 
-const buildAndDeployStyles = (deployType, vars, isWatch, isDeleteDist = false) => {
-  const func = () => {
+// ===== STYLES =====
+const buildAndDeployStyles = (deployRootAbs, vars = {}, isWatch = false) => {
+  const func = async () => {
     const options = {
-      deployType: deployType,
-      sourcePath: `${stylesBuildPath}/**/*.css`,
+      deployType: deployRootAbs,
+      sourcePath: joinPath(stylesBuild, "**/*.css"),    // ./dist/**/*.css
       targetPath: "/",
-      basePath: stylesBuildPath,
-      clearBeforeDeploy: [`${deployType}/**/*.css`],
+      basePath: stylesBuild,
+      clearBeforeDeploy: [joinPath(deployRootAbs, "**/*.css")],
     };
-    buildStyles(vars) && deployCode(options);
+    await buildStyles(vars);
+    await deployCode(options);
   };
-  isWatch ? watchWrapper(stylesWatchPath, func) : func();
+
+  return isWatch ? watchWrapper(stylesSrc, func) : func();
 };
 
-const buildAndDeployAssets = (deployType, vars, isWatch, isDeleteDist = false) => {
-  const func = () => {
+// ===== ASSETS (/static) =====
+const buildAndDeployAssets = (deployRootAbs, vars = {}, isWatch = false) => {
+  const func = async () => {
     const options = {
-      deployType: deployType,
-      sourcePath: `${assetsBuildPath}/**/*`,
+      deployType: deployRootAbs,
+      sourcePath: joinPath(assetsBuild, "**/*"),        // ./dist/static/**/*
       targetPath: "/static/",
-      basePath: assetsBuildPath,
-      clearBeforeDeploy: [`${deployType}/**/*`],
+      basePath: assetsBuild,
+      clearBeforeDeploy: [joinPath(deployRootAbs, "static/**/*")],
     };
-    buildAssets(vars) && deployCode(options);
+    await buildAssets(vars);
+    await deployCode(options);
   };
-  isWatch ? watchWrapper(assetsWatchPath, func) : func();
+
+  return isWatch ? watchWrapper(assetsSrc, func) : func();
 };
 
-const buildAndDeployPagesScripts = (deployType, vars, isWatch, isDeleteDist = false) => {
-  const func = () => {
+// ===== PAGE SCRIPTS (js у корінь сайту) =====
+const buildAndDeployPagesScripts = (deployRootAbs, vars = {}, isWatch = false) => {
+  const func = async () => {
     const options = {
-      deployType: deployType,
-      sourcePath: `${pagesScriptsBuildPath}/**/*.js`,
-      targetPath: "",
-      basePath: pagesScriptsBuildPath,
-      clearBeforeDeploy: [`${deployType}/**/*.js`],
+      deployType: deployRootAbs,
+      sourcePath: joinPath(scriptsBuild, "**/*.js"),    // ./dist/**/*.js
+      targetPath: "/",                                  // не лишай порожнім
+      basePath: scriptsBuild,
+      clearBeforeDeploy: [joinPath(deployRootAbs, "**/*.js")],
     };
-    buildPagesScripts(vars) && deployCode(options);
+    await buildPagesScripts(vars);
+    await deployCode(options);
   };
-  isWatch ? watchWrapper(pagesScriptsWatchPath, func) : func();
+
+  return isWatch ? watchWrapper(scriptsSrc, func) : func();
 };
 
-const watchBuildDeployScripts = [buildAndDeployPages, buildAndDeployStyles, buildAndDeployAssets, buildAndDeployPagesScripts];
+const watchBuildDeployScripts = [
+  buildAndDeployPages,
+  buildAndDeployStyles,
+  buildAndDeployAssets,
+  buildAndDeployPagesScripts,
+];
 
 export default watchBuildDeployScripts;

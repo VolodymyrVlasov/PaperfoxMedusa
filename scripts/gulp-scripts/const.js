@@ -31,9 +31,9 @@ export const testRemoteVars = {
 }
 
 export const prodVars = {
-    '{{domain}}': 'http://paperfox.top',
-    '{{sub_domain}}': 'http://paperfox.top',
-    '{{stylesheet_url}}': 'http://paperfox.top',
+    '{{domain}}': 'https://paperfox.top',
+    '{{sub_domain}}': 'https://paperfox.top',
+    '{{stylesheet_url}}': 'https://paperfox.top',
     '{{email}}': 'print@paperfox.com.ua',
     '{{phone}}': '0800 332 042',
     '{{viber}}': 'viber://add?number=380730472212',

@@ -9,6 +9,10 @@ module.exports = {
         NODE_ENV: "production",
         PORT: process.env.PORT || 9000,
       },
+      env_production: {
+        NODE_ENV: "production",
+        PORT: 9000,
+      },
       autorestart: true,
       max_memory_restart: "512M",
       time: true,

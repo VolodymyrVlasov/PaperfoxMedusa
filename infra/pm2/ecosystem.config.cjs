@@ -3,9 +3,13 @@ module.exports = {
     {
       name: "medusa-api",
       cwd: "/home/deploy/apps/medusa-paperfox/current",
-      script: "node",
-      args: ".medusa/server/main.js",
+      script: "npm",
+      args: "start",
       env: {
+        NODE_ENV: "production",
+        PORT: process.env.PORT || 9000,
+      },
+      env_production: {
         NODE_ENV: "production",
         PORT: 9000,
       },

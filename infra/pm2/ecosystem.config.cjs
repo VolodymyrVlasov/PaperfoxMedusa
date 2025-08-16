@@ -13,6 +13,19 @@ module.exports = {
       max_memory_restart: "512M",
       time: true,
     },
+    {
+      name: "medusa-api",
+      cwd: "/home/deploy/apps/medusa-paperfox/current",
+      script: "npm",
+      args: "start",
+      env: {
+        NODE_ENV: "test",
+        PORT: 9000,
+      },
+      autorestart: true,
+      max_memory_restart: "512M",
+      time: true,
+    },
   ],
 
   deploy: {
@@ -40,6 +53,25 @@ module.exports = {
       ].join(" && "),
       env: {
         NODE_ENV: "production",
+        PORT: 9000,
+      },
+    },
+    test: {
+      user: "deploy",
+      host: "paperfox", // або IP
+      ref: "origin/deploy/test",
+      repo: "git@github.com:VolodymyrVlasov/PaperfoxMedusa.git",
+      path: "/home/deploy/apps/medusa-paperfox",
+      "pre-deploy-local": "",
+      "post-deploy": [
+        "cd /home/deploy/apps/medusa-paperfox/current",
+        "npm ci",
+        "npm run build",
+        "pm2 startOrReload /home/deploy/apps/medusa-paperfox/current/infra/pm2/ecosystem.config.cjs --only medusa-api --env production",
+        "pm2 save",
+      ].join(" && "),
+      env: {
+        NODE_ENV: "test",
         PORT: 9000,
       },
     },

@@ -23,7 +23,7 @@ module.exports = {
       repo: "git@github.com:VolodymyrVlasov/PaperfoxMedusa.git",
       path: "/home/deploy/apps/medusa-paperfox",
       "pre-deploy-local": "",
-      "post-deploy": "npm ci && npm run build && pm2 reload ecosystem.config.js --env production",
+      "post-deploy": "npm ci && npm run build && pm2 reload ecosystem.config.cjs --env production",
       env: {
         NODE_ENV: "production",
       },

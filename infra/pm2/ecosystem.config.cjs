@@ -38,7 +38,6 @@
 //   },
 // };
 
-
 module.exports = {
   apps: [
     {
@@ -62,15 +61,13 @@ module.exports = {
       repo: "git@github.com:VolodymyrVlasov/PaperfoxMedusa.git",
       path: "/home/deploy/apps/medusa-paperfox",
       "pre-deploy-local": "",
-      "post-deploy": 'bash -lc \'\
-        set -euo pipefail; \
-        cd /home/deploy/apps/medusa-paperfox/current; \
-        npm ci; \
-        npm run build; \
-        ln -sf /home/deploy/apps/medusa-paperfox/shared/.env /home/deploy/apps/medusa-paperfox/current/.env; \
-        pm2 startOrReload /home/deploy/apps/medusa-paperfox/current/infra/pm2/ecosystem.config.cjs --only medusa-api --env production; \
-        pm2 save \
-      \'',
+      "post-deploy": [
+        "cd /home/deploy/apps/medusa-paperfox/current",
+        "npm ci",
+        "npm run build",
+        "pm2 startOrReload /home/deploy/apps/medusa-paperfox/current/infra/pm2/ecosystem.config.cjs --only medusa-api --env production",
+        "pm2 save",
+      ].join(" && "),
       env: { NODE_ENV: "production", PORT: 9000 },
     },
 
@@ -82,15 +79,13 @@ module.exports = {
       repo: "git@github.com:VolodymyrVlasov/PaperfoxMedusa.git",
       path: "/home/deploy/apps/medusa-paperfox", // <- та сама директорія!
       "pre-deploy-local": "",
-      "post-deploy": 'bash -lc \'\
-        set -euo pipefail; \
-        cd /home/deploy/apps/medusa-paperfox/current; \
-        npm ci; \
-        npm run build; \
-        ln -sf /home/deploy/apps/medusa-paperfox/shared/.env /home/deploy/apps/medusa-paperfox/current/.env; \
-        pm2 startOrReload /home/deploy/apps/medusa-paperfox/current/infra/pm2/ecosystem.config.cjs --only medusa-api --env production; \
-        pm2 save \
-      \'',
+      "post-deploy": [
+        "cd /home/deploy/apps/medusa-paperfox/current",
+        "npm ci",
+        "npm run build",
+        "pm2 startOrReload /home/deploy/apps/medusa-paperfox/current/infra/pm2/ecosystem.config.cjs --only medusa-api --env production",
+        "pm2 save",
+      ].join(" && "),
       env: { NODE_ENV: "production", PORT: 9000 },
     },
   },

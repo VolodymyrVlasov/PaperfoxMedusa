@@ -18,7 +18,7 @@ module.exports = {
   deploy: {
     production: {
       user: "deploy",
-      host: "vps-51344",
+      host: "paperfox",
       ref: "origin/main",
       repo: "git@github.com:VolodymyrVlasov/PaperfoxMedusa.git",
       path: "/home/deploy/apps/medusa-paperfox",

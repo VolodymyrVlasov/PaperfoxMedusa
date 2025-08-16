@@ -1,0 +1,138 @@
+.contact_widget_card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.contact_widget_card>u {
+    color: var(--color-theme);
+}
+
+.contact_widget_card>span {
+    display: flex;
+    position: relative;
+    padding-top: 34px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: var(--color-theme);
+}
+
+.contact_widget_card:hover>span:before,
+.contact_widget_card:focus>span:before {
+    transform: scale(1.7);
+    outline: none;
+}
+
+.contact_widget_card__telegram:before {
+    content: "";
+    width: var(--size-icon);
+    height: var(--size-icon);
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-telegram.svg") no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    transition: 300ms;
+}
+
+.contact_widget_card__viber:before {
+    content: "";
+    width: var(--size-icon);
+    height: var(--size-icon);
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-viber.svg") no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    transition: 300ms;
+}
+
+.contact_widget_card__email:before {
+    content: "";
+    width: var(--size-icon);
+    height: var(--size-icon);
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-email.svg") no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    transition: 300ms;
+}
+
+.contact_widget_card__phone:before {
+    content: "";
+    width: var(--size-icon);
+    height: var(--size-icon);
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-tel.svg") no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    transition: 300ms;
+}
+
+.contact_widget_card__location:before {
+    content: "";
+    width: var(--size-icon);
+    height: var(--size-icon);
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-tel.svg") no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    transition: 300ms;
+}
+
+@media (max-width: 991.98px) {
+    .contact_widget_card {
+        max-width: calc(50% - var(--size-big-gap) + var(--size-big-gap) / 2);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .contact_widget_card {
+        max-width: calc(50% - var(--size-big-gap) + var(--size-big-gap) / 2);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .contact_widget_card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        max-width: calc(50% - (var(--size-big-gap) / 2));
+        padding: 56px 0 12px 0;
+        /* background-color: white; */
+        /* border: 1px solid var(--color-theme); */
+        border-radius: var(--size-border-radius);
+        background-color: white;
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.08);
+
+    }
+
+    .contact_widget_card>span {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        /* color: var(--color-gray); */
+    }
+
+    .contact_widget_card>p,
+    .contact_widget_card>u {
+        display: none;
+    }
+
+    .contact_widget_card__viber:before,
+    .contact_widget_card__email:before,
+    .contact_widget_card__phone:before,
+    .contact_widget_card__telegram:before {
+        content: "";
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translate(-50%, -80%);
+        transition: 300ms;
+    }
+
+    .contact_widget_card:hover>span:before,
+    .contact_widget_card:focus>span:before {
+        transform: scale(1) translate(-50%, -80%);
+        outline: none;
+    }
+}

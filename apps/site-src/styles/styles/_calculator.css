@@ -1,0 +1,129 @@
+.calculator {
+    display: flex;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.inputs {
+    flex: 4.5;
+    padding: 40px 40px 40px 0;
+    border-right: 1px solid var(--color-theme);
+}
+
+.summary {
+    position: relative;
+    padding: 60px 0 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    transition: var(--time-tr-time);
+}
+
+.summary_wrapper {
+    position: relative;
+    padding: 60px 0 30px 40px;
+}
+
+.summary_details_btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 999px;
+    background-color: var(--color-theme);
+    border: 1px solid transparent;
+    color: white;
+    line-height: 1em;
+    font-size: 12px;
+    cursor: pointer;
+
+}
+
+.summary_details_btn:hover {
+    transition: 300ms ease;
+    border: 1px solid var(--color-theme);
+    color: var(--color-theme);
+    background-color: transparent;
+}
+
+.calculator_summary_cards {
+    animation: fade_in 230ms;
+}
+
+@keyframes fade_in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@media (max-width: 991.98px) {
+    .calculator {
+        flex-direction: column-reverse;
+    }
+
+    .inputs {
+        flex: 1;
+        border-right: 1px solid transparent;
+        padding: 40px 0;
+    }
+
+    .summary_wrapper {
+        padding: 0;
+    }
+
+    .summary {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-size: 22px;
+        padding: 8px 18px;
+    }
+
+    .summary_details_btn {
+        right: 0;
+        top: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .summary_main_labels__col {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .summary_details_btn {
+        right: -4px;
+        top: -12px;
+    }
+
+    .calculator {
+        padding: 0;
+    }
+
+    .summary {
+        padding: 15px 0;
+        flex-direction: row;
+    }
+
+    .summary>div {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .calculator.row {
+        flex-direction: column-reverse;
+    }
+}

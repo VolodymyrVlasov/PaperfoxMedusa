@@ -1,0 +1,8 @@
+.design_guide_card > p {
+    height: 130px;
+}
+
+.design_guide_small_card > p {
+    min-height: 80px !important;
+}
+

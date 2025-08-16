@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <title>Кнопки та посилання | PaperFox</title>
+    <link rel="canonical" href="{{domain}}/print-sticker/round/" />
+    <link rel="shortcut icon" href="{{stylesheet_url}}/static/icons/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{stylesheet_url}}/style.css">
+</head>
+
+<body>
+    @@include('../../../partials/header.html')
+    <main>
+        <section class="section">
+            <div class="container col big_gap">
+                <div class="row width_100">
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Action link with description</p>
+                        <a title="Add description for this link" href="#" class="sub_link" aria-label="Друк на чашках"
+                            aria-current="page">
+                            <span>ACTION TITLE</span>
+                            <span>short description</span>
+                        </a>
+                    </div>
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Action link</p>
+                        <a title="Add description for this link" href="#" class="sub_link" aria-label="Друк на чашках"
+                            aria-current="page">
+                            <span>ACTION TITLE</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row width_100">
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Secondary link like button</p>
+                        <a class="button__secondary" href="#" title="short description">ACTION TITLE</a>
+                    </div>
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Normal link like button</p>
+                        <a class="button__normal" href="#" title="short description">ACTION TITLE</a>
+                    </div>
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Primary link like button</p>
+                        <a class="button__primary" href="#" title="short description">ACTION TITLE</a>
+                    </div>
+                </div>
+    
+                <div class="row width_100">
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Secondary button</p>
+                        <button class="button__secondary" title="short description">ACTION TITLE</button>
+                    </div>
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Normal button</p>
+                        <button class="button__normal" title="short description">ACTION TITLE</button>
+                    </div>
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Primary button</p>
+                        <button class="button__primary" title="short description">ACTION TITLE</button>
+                    </div>
+                </div>
+    
+                <div class="row width_100">
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Secondary button</p>
+                        <button class="button__secondary" title="short description">
+                            <i class="button_icon" aria-label="icon for button"></i>
+                            <span>ACTION TITLE</span>
+                        </button>
+                    </div>
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Normal button</p>
+                        <button class="button__normal" title="short description">
+                            <i class="button_icon" aria-label="icon for button"></i>
+                            <span>ACTION TITLE</span>
+                        </button>
+                    </div>
+                    <div class="flex_1 col gap">
+                        <p class="bg_gray text_12__gray">Primary button</p>
+                        <button class="button__primary" title="short description">
+                            <i class="button_icon__primary" aria-label="icon for button"></i>
+                            <span>ACTION TITLE</span>
+                        </button>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container col gap">
+                <p class="bg_gray text_12__gray">Radio buttons</p>
+                <div class="row small_gap">
+                    <label class="attribute_radio_input" for="t-shirt-size-xs">
+                        <input type="radio" name="t-shirt-size" id="t-shirt-size-xs" value="xs" checked/>
+                        <span>XS</span>
+                    </label>
+                    <label class="attribute_radio_input" for="t-shirt-size-s">
+                        <input type="radio" name="t-shirt-size" id="t-shirt-size-s" value="s"/>
+                        <span>S</span>
+                    </label>
+                    <label class="attribute_radio_input" for="t-shirt-size-m">
+                        <input type="radio" name="t-shirt-size" id="t-shirt-size-m" value="m"/>
+                        <span>M</span>
+                    </label>
+                    <label class="attribute_radio_input" for="t-shirt-size-l">
+                        <input type="radio" name="t-shirt-size" id="t-shirt-size-l" value="l"/>
+                        <span>L</span>
+                    </label>
+                    <label class="attribute_radio_input" for="t-shirt-size-xl">
+                        <input type="radio" name="t-shirt-size" id="t-shirt-size-xl" value="xl"/>
+                        <span>XL</span>
+                    </label>
+                    <label class="attribute_radio_input" for="t-shirt-size-xxl">
+                        <input type="radio" name="t-shirt-size" id="t-shirt-size-xxl" value="xxl"/>
+                        <span>XXL</span>
+                    </label>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    @@include('../../../partials/footer.html')
+    <script type="module" src="{{domain}}/src/scripts/RoundStickerCalculator.js"></script>
+    <script type="module" src="{{domain}}/src/scripts/app.js"></script>
+</body>
+
+</html>

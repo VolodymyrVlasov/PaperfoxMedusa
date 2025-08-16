@@ -1,0 +1,112 @@
+<header class="header" tabindex="0">
+  <div class="top_header_pc_menu_wrapper">
+    <div class="top_header_pc_menu">
+      <div class="row gap">
+        <a href="tel:{{phone}}" class="top_header_pc_menu_link phone_before">{{phone}}</a>
+        <a href="mailto:{{email}}" class="top_header_pc_menu_link mail_before">{{email}}</a>
+        <a href="{{viber}}" class="top_header_pc_menu_link viber_before">Viber</a>
+        <a href="{{telegram}}" class="top_header_pc_menu_link telegram_before">Telegram</a>
+      </div>
+      <div class="row gap">
+        <a href="{{domain}}/design-guide" class="top_header_pc_menu_link">Дизайн гайд</a>
+        <a href="{{domain}}/oplata-i-dostavka" class="top_header_pc_menu_link">Доставка та оплата</a>
+        <a href="{{domain}}/oplata-i-dostavka" class="top_header_pc_menu_link">Умови користування</a>
+        <a href="{{domain}}/blog/" class="top_header_pc_menu_link">Блог</a>
+      </div>
+    </div>
+  </div>
+  <nav class="header__container">
+    <a class="logo" href="{{domain}}" aria-label="Перейти на головну сторінку">
+      <img
+        title="PAPERFOX LOGO"
+        class="logo__img"
+        src="{{stylesheet_url}}/static/paperfox-logo.svg"
+        width="4"
+        height="1"
+        loading="lazy"
+        decoding="async"
+        alt="Лого PAPERFOX"
+      />
+    </a>
+    <div class="mob_menu_wrapper">
+      <a class="mob_menu_btn" href="#" aria-label="Мобільне меню" tabindex="0"></a>
+      <ol class="main_menu">
+        <li class="menu_item">
+          <a href="#" class="menu_item__link" tabindex="0"><span>ПОЛІГРАФІЯ</span></a>
+          <div class="drop_down_wrapper">
+            <div class="drop_down_container">
+              @@include('./header-nav-parts/nav-polygraphy.html') @@include('./header-nav-parts/nav-contacts.html')
+            </div>
+          </div>
+        </li>
+        <li class="menu_item">
+          <a href="#" class="menu_item__link" tabindex="0"><span>СУВЕНІРНА ПРОДУКЦІЯ</span></a>
+          <div class="drop_down_wrapper">
+            <div class="drop_down_container">
+              @@include('./header-nav-parts/nav-souveniers.html') @@include('./header-nav-parts/nav-contacts.html')
+            </div>
+          </div>
+        </li>
+        <li class="menu_item">
+          <a href="#" class="menu_item__link" tabindex="0"><span>МАГАЗИН</span></a>
+          <div class="drop_down_wrapper">
+            <div class="drop_down_container">
+              @@include('./header-nav-parts/nav-shop.html') @@include('./header-nav-parts/nav-contacts.html')
+            </div>
+          </div>
+        </li>
+
+        <li class="menu_item">
+          <a href="{{sub_domain}}/cart/" class="menu_item__cart" aria-label="Кошик"></a>
+        </li>
+        <li class="menu_item">
+          <a href="{{sub_domain}}/cart/" class="menu_item__cart_mob" aria-label="Кошик">
+            <span>КОШИК</span>
+          </a>
+        </li>
+        <li class="menu_item__s_links">
+          <ul class="col small_gap">
+            <li>
+              <a href="{{domain}}/oplata-i-dostavka" class="menu_item__s_link">Доставка та оплата</a>
+            </li>
+            <li>
+              <a href="{{domain}}/oplata-i-dostavka" class="menu_item__s_link">Умови користування</a>
+            </li>
+
+            <li>
+              <a href="{{domain}}/contacts/" class="menu_item__s_link">Контакти</a>
+            </li>
+            <li>
+              <a href="{{domain}}/blog/" class="menu_item__s_link">Блог</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu_item__s_links">
+          <ul class="col small_gap">
+            <li>
+              <a href="tel:{{phone}}" class="menu_item__s_link phone_before">{{phone}}</a>
+            </li>
+            <li>
+              <a href="mailto:{{email}}" class="menu_item__s_link mail_before">{{email}}</a>
+            </li>
+            <li>
+              <a href="{{viber}}" class="menu_item__s_link viber_before">Viber</a>
+            </li>
+            <li>
+              <a href="{{telegram}}" class="menu_item__s_link telegram_before">Telegram</a>
+            </li>
+            <li>
+              <a
+                href="https://www.google.com.ua/maps/place/Yaroslavska+St,+14,+Kyiv,+02000/@50.4675666,30.5094684,17z/data=!4m6!3m5!1s0x40d4ce6b488d6537:0x6c0f58a981bc9200!8m2!3d50.4675666!4d30.5116571!16s%2Fg%2F11bw3yrdmt"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="menu_item__s_link location_before"
+                >м. Київ, вул. Ярославська, 20/14</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </nav>
+</header>

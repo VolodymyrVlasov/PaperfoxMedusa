@@ -1,0 +1,28 @@
+.social_btn {
+    width: 25px !important;
+    height: 25px !important;
+    cursor: pointer;
+    transition: 300ms ease;
+}
+
+.social_btn:hover {
+    transform: scale(1.1);
+}
+
+.facebook_btn {
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-facebook-btn.svg") no-repeat center;
+}
+
+.instagram_btn {
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-instagram-btn.svg") no-repeat center;
+}
+
+.youtube_btn {
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-youtube-btn.svg") no-repeat center;
+}
+
+@media (max-width: 767.98px) {
+    .footer .logo__img {
+        object-position: top !important;
+    }
+}

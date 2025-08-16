@@ -1,0 +1,91 @@
+:root {
+    --icon-width: 12px;
+    --icon-gap: 8px;
+}
+
+.viber_before:hover::before,
+.telegram_before:hover::before,
+.phone_before:hover::before,
+.mail_before:hover::before,
+.location_before:hover::before {
+    background-position: right;
+}
+
+.viber_before::before {
+    content: "";
+    margin-top: -2px;
+    margin-right: var(--icon-gap);
+    width: var(--icon-width);
+    height: 100%;
+    background: url("{{stylesheet_url}}/static/icons/icon-sprite-viber.svg") center/300% no-repeat;
+}
+
+.telegram_before::before {
+    content: "";
+    margin-top: -2px;
+    margin-right: var(--icon-gap);
+    width: var(--icon-width);
+    height: 100%;
+    background: url("{{stylesheet_url}}/static/icons/icon-sprite-telegram.svg") center/300% no-repeat;
+}
+
+.phone_before::before {
+    content: "";
+    margin-top: -2px;
+    margin-right: var(--icon-gap);
+    width: var(--icon-width);
+    height: 100%;
+    background: url("{{stylesheet_url}}/static/icons/icon-sprite-phone.svg") center/300% no-repeat;
+}
+
+.mail_before::before {
+    content: "";
+    margin-top: -2px;
+    margin-right: var(--icon-gap);
+    width: var(--icon-width);
+    height: 100%;
+    background: url("{{stylesheet_url}}/static/icons/icon-sprite-mail.svg") center/300% no-repeat;
+}
+
+.location_before::before {
+    content: "";
+    margin-top: -2px;
+    margin-right: var(--icon-gap);
+    width: var(--icon-width);
+    height: 100%;
+    background: url("{{stylesheet_url}}/static/icons/icon-mob-menu-location.svg") center/300% no-repeat;
+}
+
+.clock_icon_before,
+.magic_icon_before,
+.rocket_icon_before {
+    position: relative;
+    margin-left: 48px;
+}
+
+.clock_icon_before::before {
+    content: "";
+    position: absolute;
+    left: -48px;
+    width: 32px;
+    height: 32px;
+    background: url("{{stylesheet_url}}/static/icons/icon-clocks.webp") 100% 100%/100% no-repeat;
+}
+
+.magic_icon_before::before {
+    content: "";
+    position: absolute;
+    left: -48px;
+    width: 32px;
+    height: 32px;
+    background: url("{{stylesheet_url}}/static/icons/icon-magic.webp") 100% 100%/100% no-repeat;
+}
+
+.rocket_icon_before::before {
+    content: "";
+    position: absolute;
+    left: -48px;
+    width: 32px;
+    height: 32px;
+    background: url("{{stylesheet_url}}/static/icons/icon-rocket.webp") 100% 100%/100% no-repeat;
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <section>
+      <div id="canvas_order_form">
+        <img src="" alt="" width="300" height="300" id="Img">
+        <select id="sizevalue">
+          <option value="15x20">15x20</option>
+          <option value="20x20">20x20</option>
+          <option value="20x30">20x30</option>
+          <option value="20x60">20x60</option>
+          <option value="30x30">30x30</option>
+          <option value="30x40">30x40</option>
+          <option value="30x45">30x45</option>
+          <option value="30x60">30x60</option>
+          <option value="30x90">30x90</option>
+          <option value="40x40">40x40</option>
+          <option value="40x50">40x50</option>
+          <option value="40x60" selected>40x60</option>
+          <option value="40x80">40x80</option>
+          <option value="50x50">50x50</option>
+          <option value="50x70">50x70</option>
+          <option value="55x85">55x85</option>
+          <option value="55x110">55x110</option>
+          <option value="55x160">55x165</option>
+          <option value="60x80">60x80</option>
+          <option value="60x90">60x90</option>
+          <option value="65x65">65x65</option>
+          <option value="70x100">70х100</option>
+          <option value="85x85">85x85</option>
+          <option value="85x120">85x120</option>
+          <option value="100x100">100х100</option>
+        </select>
+
+        <select id="materialvalue">
+          <option value="cotton" selected>Натуральний</option>
+          <option value="syntetic">Синтетичний</option>
+        </select>
+        <select id="covervalue">
+          <option value="no-cover">Без лака</option>
+          <option value="cover" selected>З лаком</option>
+        </select>
+        <output id="summ">660</output>
+        <a href="" id="canvas-order-button" target="_blank">ЗАМОВИТИ</a>
+      </div>
+    </section>
+
+    <section>
+      <table class="minimalistBlack">
+        <thead>
+          <tr>
+            <th itemprop="size" scope="col">Розмір</th>
+            <th scope="col" itemprop="category">Синтетичне</th>
+            <th scope="col" itemprop="category">Синтетичне з лаком</th>
+            <th scope="col" itemprop="category">Натуральне</th>
+            <th scope="col" itemprop="category">Натуральне з лаком</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">15x20</th>
+            <td itemprop="price" data-currency="UAH">260</td>
+            <td itemprop="price" data-currency="UAH">290</td>
+            <td itemprop="price" data-currency="UAH">290</td>
+            <td itemprop="price" data-currency="UAH">320</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">20x20</th>
+            <td itemprop="price" data-currency="UAH">270</td>
+            <td itemprop="price" data-currency="UAH">300</td>
+            <td itemprop="price" data-currency="UAH">290</td>
+            <td itemprop="price" data-currency="UAH">320</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">20x30</th>
+            <td itemprop="price" data-currency="UAH">320</td>
+            <td itemprop="price" data-currency="UAH">350</td>
+            <td itemprop="price" data-currency="UAH">340</td>
+            <td itemprop="price" data-currency="UAH">370</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">20x60</th>
+            <td itemprop="price" data-currency="UAH">500</td>
+            <td itemprop="price" data-currency="UAH">550</td>
+            <td itemprop="price" data-currency="UAH">550</td>
+            <td itemprop="price" data-currency="UAH">600</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">30x30</th>
+            <td itemprop="price" data-currency="UAH">290</td>
+            <td itemprop="price" data-currency="UAH">320</td>
+            <td itemprop="price" data-currency="UAH">320</td>
+            <td itemprop="price" data-currency="UAH">350</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">30x40</th>
+            <td itemprop="price" data-currency="UAH">330</td>
+            <td itemprop="price" data-currency="UAH">360</td>
+            <td itemprop="price" data-currency="UAH">360</td>
+            <td itemprop="price" data-currency="UAH">390</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">30x45</th>
+            <td itemprop="price" data-currency="UAH">380</td>
+            <td itemprop="price" data-currency="UAH">420</td>
+            <td itemprop="price" data-currency="UAH">420</td>
+            <td itemprop="price" data-currency="UAH">460</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">30x60</th>
+            <td itemprop="price" data-currency="UAH">460</td>
+            <td itemprop="price" data-currency="UAH">510</td>
+            <td itemprop="price" data-currency="UAH">510</td>
+            <td itemprop="price" data-currency="UAH">560</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">30x90</th>
+            <td itemprop="price" data-currency="UAH">620</td>
+            <td itemprop="price" data-currency="UAH">680</td>
+            <td itemprop="price" data-currency="UAH">680</td>
+            <td itemprop="price" data-currency="UAH">740</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">40x40</th>
+            <td itemprop="price" data-currency="UAH">430</td>
+            <td itemprop="price" data-currency="UAH">470</td>
+            <td itemprop="price" data-currency="UAH">470</td>
+            <td itemprop="price" data-currency="UAH">510</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">40x50</th>
+            <td itemprop="price" data-currency="UAH">440</td>
+            <td itemprop="price" data-currency="UAH">480</td>
+            <td itemprop="price" data-currency="UAH">480</td>
+            <td itemprop="price" data-currency="UAH">520</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">40x60</th>
+            <td itemprop="price" data-currency="UAH">500</td>
+            <td itemprop="price" data-currency="UAH">550</td>
+            <td itemprop="price" data-currency="UAH">550</td>
+            <td itemprop="price" data-currency="UAH">600</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">40x80</th>
+            <td itemprop="price" data-currency="UAH">740</td>
+            <td itemprop="price" data-currency="UAH">810</td>
+            <td itemprop="price" data-currency="UAH">820</td>
+            <td itemprop="price" data-currency="UAH">890</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">50x50</th>
+            <td itemprop="price" data-currency="UAH">570</td>
+            <td itemprop="price" data-currency="UAH">630</td>
+            <td itemprop="price" data-currency="UAH">630</td>
+            <td itemprop="price" data-currency="UAH">690</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">50x70</th>
+            <td itemprop="price" data-currency="UAH">780</td>
+            <td itemprop="price" data-currency="UAH">860</td>
+            <td itemprop="price" data-currency="UAH">870</td>
+            <td itemprop="price" data-currency="UAH">950</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">55x85</th>
+            <td itemprop="price" data-currency="UAH">830</td>
+            <td itemprop="price" data-currency="UAH">920</td>
+            <td itemprop="price" data-currency="UAH">920</td>
+            <td itemprop="price" data-currency="UAH">1010</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">55x110</th>
+            <td itemprop="price" data-currency="UAH">1070</td>
+            <td itemprop="price" data-currency="UAH">1180</td>
+            <td itemprop="price" data-currency="UAH">1190</td>
+            <td itemprop="price" data-currency="UAH">1300</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">55x160</th>
+            <td itemprop="price" data-currency="UAH">1400</td>
+            <td itemprop="price" data-currency="UAH">1550</td>
+            <td itemprop="price" data-currency="UAH">1560</td>
+            <td itemprop="price" data-currency="UAH">1710</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">60x80</th>
+            <td itemprop="price" data-currency="UAH">840</td>
+            <td itemprop="price" data-currency="UAH">940</td>
+            <td itemprop="price" data-currency="UAH">940</td>
+            <td itemprop="price" data-currency="UAH">1040</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">60x90</th>
+            <td itemprop="price" data-currency="UAH">980</td>
+            <td itemprop="price" data-currency="UAH">1110</td>
+            <td itemprop="price" data-currency="UAH">1120</td>
+            <td itemprop="price" data-currency="UAH">1250</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">65x65</th>
+            <td itemprop="price" data-currency="UAH">810</td>
+            <td itemprop="price" data-currency="UAH">910</td>
+            <td itemprop="price" data-currency="UAH">920</td>
+            <td itemprop="price" data-currency="UAH">1020</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">70x100</th>
+            <td itemprop="price" data-currency="UAH">1100</td>
+            <td itemprop="price" data-currency="UAH">1240</td>
+            <td itemprop="price" data-currency="UAH">1260</td>
+            <td itemprop="price" data-currency="UAH">1400</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">85x85</th>
+            <td itemprop="price" data-currency="UAH">1040</td>
+            <td itemprop="price" data-currency="UAH">1170</td>
+            <td itemprop="price" data-currency="UAH">1180</td>
+            <td itemprop="price" data-currency="UAH">1310</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">85x120</th>
+            <td itemprop="price" data-currency="UAH">1350</td>
+            <td itemprop="price" data-currency="UAH">1500</td>
+            <td itemprop="price" data-currency="UAH">1530</td>
+            <td itemprop="price" data-currency="UAH">1680</td>
+          </tr>
+          <tr itemprop="offers" itemtype="http://schema.org/Offer">
+            <th itemprop="size" scope="row">100x100</th>
+            <td itemprop="price" data-currency="UAH">1270</td>
+            <td itemprop="price" data-currency="UAH">1450</td>
+            <td itemprop="price" data-currency="UAH">1470</td>
+            <td itemprop="price" data-currency="UAH">1650</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <script src="./06_2024_canvas.js"></script>
+  </body>
+</html>

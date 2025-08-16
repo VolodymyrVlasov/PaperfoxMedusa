@@ -34,6 +34,7 @@ module.exports = {
         "npm run build",
 
         // старт/релод через абсолютний шлях до цього ж файлу
+        "ln -sf /home/deploy/apps/medusa-paperfox/shared/.env /home/deploy/apps/medusa-paperfox/current/.env",
         "pm2 startOrReload /home/deploy/apps/medusa-paperfox/current/infra/pm2/ecosystem.config.cjs --only medusa-api --env production",
         "pm2 save"
       ].join(" && "),

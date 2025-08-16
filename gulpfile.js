@@ -30,7 +30,7 @@
 
 import { DeployTypes } from "./scripts/gulp-scripts/deploy/deployTypes.js";
 import watchBuildDeployScripts from "./scripts/gulp-scripts/watchScripts.js";
-import { localVars, prodRemoteVars } from "./scripts/gulp-scripts/const.js";
+import { localVars, prodVars } from "./scripts/gulp-scripts/const.js";
 import { deleteSync } from "del";
 
 // допоміжна: послідовно виконати всі скрипти
@@ -59,7 +59,7 @@ export const deployToLocal = async () => {
 };
 
 export const buildProd = async () => {
-  await runAllSequential(DeployTypes.PROD_SERVER, prodRemoteVars, false);
+  await runAllSequential(DeployTypes.PROD_SERVER, prodVars, false);
 
   // чистимо dist після успішного завершення
   const rmPath = "./dist/";

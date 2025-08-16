@@ -30,14 +30,14 @@ export const testRemoteVars = {
     '{{google_tag_id}}': 'GTM-MNG4WVJJ',
 }
 
-export const prodRemoteVars = {
-    '{{domain}}': 'http://localhost:5502/devPreview',
-    '{{sub_domain}}': 'http://localhost:5502/devPreview',
-    '{{stylesheet_url}}': 'http://localhost:5502/devPreview',
-    '{{email}}': 'print@paperfox.in.ua',
+export const prodVars = {
+    '{{domain}}': 'http://paperfox.top',
+    '{{sub_domain}}': 'http://paperfox.top',
+    '{{stylesheet_url}}': 'http://paperfox.top',
+    '{{email}}': 'print@paperfox.com.ua',
     '{{phone}}': '0800 332 042',
     '{{viber}}': 'viber://add?number=380730472212',
     '{{telegram}}': 'https://t.me/Paper_Fox',
-    '{{weekdays}}': 'Пн - Пт: 11:00 - 18:00',
-    '{{weekends}}': 'Сб - Нд: Вихідні',
+    '{{weekdays}}': 'Пн - Пт: 10:00 - 19:00',
+    '{{weekends}}': 'Сб - Нд: 11:00 - 16:00',
 }

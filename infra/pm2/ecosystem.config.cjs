@@ -11,7 +11,7 @@ module.exports = {
       time: true,
     },
     {
-      name: "medusa-api-test", // тест
+      name: "medusa-api-test",
       cwd: "/home/deploy/apps/medusa-paperfox-test/current",
       script: "npm",
       args: "start",

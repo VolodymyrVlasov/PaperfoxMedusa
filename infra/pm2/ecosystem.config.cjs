@@ -23,7 +23,7 @@ module.exports = {
       repo: "git@github.com:VolodymyrVlasov/PaperfoxMedusa.git",
       path: "/home/deploy/apps/medusa-paperfox",
       "pre-deploy-local": "",
-      "post-deploy": [
+      "post-deplexoy": [
         // (опціонально) підвантажити nvm, якщо PM2 запускається без профілю шелла
         "export NVM_DIR=\"$HOME/.nvm\"",
         "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\" || true",

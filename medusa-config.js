@@ -1,5 +1,5 @@
-const { loadEnv, defineConfig } = require("@medusajs/framework/utils")
-loadEnv(process.env.NODE_ENV || 'development', process.cwd())
+const { loadEnv, defineConfig } = require("@medusajs/framework/utils");
+loadEnv(process.env.NODE_ENV || "development", process.cwd());
 
 module.exports = defineConfig({
   projectConfig: {
@@ -10,8 +10,8 @@ module.exports = defineConfig({
       storeCors: process.env.STORE_CORS,
       adminCors: process.env.ADMIN_CORS,
       authCors: process.env.AUTH_CORS || process.env.ADMIN_CORS,
-      jwtSecret: process.env.JWT_SECRET || 'supersecret',
-      cookieSecret: process.env.COOKIE_SECRET || 'supersecret',
+      jwtSecret: process.env.JWT_SECRET || "supersecret",
+      cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
   // v2: модулі задаються масивом, file-модуль + local-провайдер
@@ -32,4 +32,5 @@ module.exports = defineConfig({
       },
     },
   ],
-})
+  plugins: [{ resolve: "ppf-test-plugin", options: {} }],
+});

@@ -1,0 +1,94 @@
+/* `xxl` applies to xx-large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
+}
+
+/*`xl` applies to x-large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+}
+
+/* `lg` applies to large devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+}
+
+/* `md` applies to medium devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+}
+
+/* `sm` applies to small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+  .card {
+    border-radius: var(--size-border-radius);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.08);
+   
+  }
+
+  .card__wrapper:focus-within {
+    align-items: flex-end;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .card:focus-within {
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: var(--size-border-radius) var(--size-border-radius) 0 0;
+    width: 100%;
+    height: fit-content;
+    animation: slide-from-bottom 1 500ms;
+  }
+
+  .card__info {
+    padding: 0 12px;
+  }
+
+  .card:focus-within > picture {
+    display: none;
+  }
+
+  .card:focus-within .card__info {
+    width: 100%;
+    padding: 16px;
+    gap: var(--size-big-gap);
+  }
+
+  .card:focus-within .card_close {
+    position: static;
+    width: 100%;
+    border: 1px solid var(--color-theme);
+    border-radius: var(--size-border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-theme);
+    line-height: 100%;
+    gap: var(--size-gap);
+    margin-top: -32px;
+    margin-bottom: 32px;
+  }
+
+  .card:focus-within .card_close:focus,
+  .card:focus-within .card_close:after:focus {
+    background-color: var(--color-theme) !important;
+    color: white !important;
+  }
+
+  .card:focus-within .card_close:after {
+    content: "ЗАКРИТИ";
+    color: var(--color-theme);
+    font-size: var(--font-text-16);
+  }
+
+  .card:focus-within:has(.card_close:active),
+  .card:focus-within:has(.card_close:focus) {
+    pointer-events: none;
+  }
+
+  picture:has(> .card__image) {
+    border-radius: var(--size-border-radius) var(--size-border-radius) 0 0;
+  }
+}
+
+/* `xsm` applies to x-small devices (iPhone 5/5s/SE, equals to 320px) */
+@media (max-width: 320px) {
+}

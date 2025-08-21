@@ -1,0 +1,185 @@
+:root {
+    --mcard-image-height: 180px;
+}
+
+.section .mcard {
+    position: relative;
+}
+
+.mcard__wrapper {
+    width: 100%;
+}
+
+.mcard {
+    display: flex;
+    flex-direction: column;
+    transition: ease all 300ms;
+    width: 100%;
+    gap: var(--size-small-gap);
+}
+
+.mcard__image {
+    display: flex;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 380px;
+    min-height: 180px;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.15);
+    filter: sepia(10%);
+    outline: none;
+    border: none;
+    transition: var(--time-tr-time);
+    overflow: hidden !important;
+}
+
+picture:has(>.mcard__image) {
+    height: var(--mcard-image-height) !important;
+    overflow: hidden;
+    border-radius: var(--size-border-radius);
+    min-width: 380px;
+    min-height: 180px;
+}
+
+.mcard__image:hover {
+    transform: scale(1.35);
+}
+
+.mcard__wrapper:focus-within {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw !important;
+    height: 100%;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.mcard:focus-within {
+    flex-direction: row;
+    gap: var(--size-gap);
+    width: 60%;
+    height: 70%;
+    margin-top: -32px;
+    background-color: white;
+    border-radius: var(--size-border-radius);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+    animation: fade-in 1 1000ms;
+}
+
+.mcard:focus-within picture {
+    height: 100% !important;
+    width: 100%;
+ 
+    border-radius: var(--size-border-radius) 0 0 var(--size-border-radius) !important;
+}
+
+.mcard:focus-within .mcard__image {
+    height: 100% !important;
+    border-radius: var(--size-border-radius) 0 0 var(--size-border-radius) !important;
+}
+
+.mcard:focus-within>.mcar__info>.sub_link {
+    opacity: 0;pointer-events: none;
+    /* transform: translateX(-100vw); */
+}
+
+.mcar__info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--size-small-gap);
+}
+
+.mcard:focus-within>.mcar__info {
+    width: 100%;
+    padding: 24px 24px 24px 0;
+}
+
+.mcard:focus-within>.mcar__info>h4 {
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 24px;
+}
+
+.mcard:focus-within>.mcar__info>.text_14 {
+    display: none;
+}
+
+.mcard:focus-within>.mcar__info>.mcar__info__details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--size-small-gap);
+}
+
+.mcar__info__details {
+    display: none;
+}
+
+.mcard_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(100%, -70%) rotate(45deg) scale(1.5);
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    transition: 150ms;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+/* `xxl` applies to xx-large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {}
+
+/*`xl` applies to x-large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {}
+
+/* `lg` applies to large devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {}
+
+/*-------------------------------------------*/
+/* `md` applies to medium devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .mcard {
+        border-radius: var(--size-border-radius);
+        background-color: white;
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .mcar__info {
+        padding: 0 12px 0 12px;
+    }
+
+    .mcard>img,
+    .mcard>picture>img,
+    picture:has(.mcard__image) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .mcard:focus-within {
+        flex-direction: column;
+        gap: var(--size-gap);
+        width: 85%;
+        height: 85%;
+        margin-top: 30px;
+        background-color: white;
+        border-radius: var(--size-border-radius);
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+        animation: fade-in 1 1000ms;
+    }
+}
+
+/* `sm` applies to small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {}
+
+/* `xsm` applies to x-small devices (iPhone 5/5s/SE, equals to 320px) */
+@media (max-width: 320px) {}

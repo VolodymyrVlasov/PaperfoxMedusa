@@ -7,3 +7,5 @@ npm-debug.log*
 yarn-error.log*
 .pnpm-store/
 logs/
+!apps/site-src/static
+apps/site-src/pages/test

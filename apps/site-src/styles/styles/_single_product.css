@@ -1,0 +1,97 @@
+.bg_theme {
+  border: 1px solid var(--color-theme);
+}
+
+.single_product_card_row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--size-big-gap);
+  width: 100%;
+  min-height: 360px;
+}
+
+.single_product_card_col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-big-gap);
+}
+
+.single_product_card_image_cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: fit-content;
+}
+
+.single_product_card_fpd_cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  flex: 1;
+}
+
+.single_product_card_description_cnt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-gap);
+  flex: 1;
+}
+
+.single_product_summary_card {
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  gap: var(--size-small-gap);
+  background-color: var(--color-light-light-gray);
+  border: 0.5px solid var(--color-light-gray);
+  border-radius: var(--size-border-radius);
+  padding: 24px;
+  min-width: 430px;
+  transition: 100ms ease;
+}
+
+.woocommerce-message,
+.woocommerce-notices-wrapper {
+  width: 100% !important;
+}
+
+.woocommerce-message {
+  border: 1px solid var(--color-theme) !important;
+  border-radius: var(--size-border-radius);
+  background-color: var(--color-light-light-theme);
+  color: black;
+}
+
+.woocommerce-message::before {
+  color: var(--color-theme) !important;
+}
+
+.woocommerce-message > .button.wc-forward {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  transition: var(--time-tr-time);
+}
+
+.woocommerce-message > .button.wc-forward:after {
+  content: "";
+  background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-arrow-menu.svg") no-repeat 100% top;
+  background-size: 100% 200%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 16px -4px 22px;
+  transition: var(--time-tr-time);
+}
+
+.button.wc-forward:hover:after {
+  background-position: bottom;
+  transition: var(--time-tr-time);
+}
+
+.button.wc-forward:hover {
+  color: var(--color-theme);
+}
